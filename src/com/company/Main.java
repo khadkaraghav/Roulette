@@ -23,6 +23,7 @@ public class Main {
         double betNum = 0;
         int numOne = 0;
         double lostBet = 0;
+        String trueFalse = "";
 
 
         ArrayList<String> colorPick = new ArrayList<>();
@@ -37,9 +38,14 @@ public class Main {
 
         System.out.println("Welcome! Let's play some roulette");
 
-            System.out.println("Enter the type of bet you would like to place (red|black|even|odd|high|low):");
+
+        while (true) {
+
+        System.out.println("Enter the type of bet you would like to place (red|black|even|odd|high|low):");
 
             String choice = input.nextLine();
+
+
 
 
             switch (choice) {
@@ -195,24 +201,20 @@ public class Main {
                     break;
 
             }
-            ask();
+            System.out.println("Do you want to continue ? true or false");
         }
     }
 
-    public static void ask() {
+        //System.out.println("\nYou currently have $" + total);
+        //System.out.println("You've won\t" + wonGame + "game(s) and lost" + lostGame + "game(s)");
 
-        Scanner input = new Scanner(System.in);
-        System.out.println("Do you want to continue ? true or false");
-        String trueFalse="";
-
-        while (!trueFalse.equalsIgnoreCase("false")) {
-
-            trueFalse = input.nextLine();
-
-
-        }
     }
-}
+
+
+
+
+
+
 
 
 
