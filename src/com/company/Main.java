@@ -23,7 +23,6 @@ public class Main {
         double betNum = 0;
         int numOne = 0;
         double lostBet = 0;
-        String trueFalse = "";
 
 
         ArrayList<String> colorPick = new ArrayList<>();
@@ -38,200 +37,182 @@ public class Main {
 
         System.out.println("Welcome! Let's play some roulette");
 
+            System.out.println("Enter the type of bet you would like to place (red|black|even|odd|high|low):");
 
-        System.out.println("Enter the type of bet you would like to place (red|black|even|odd|high|low):");
-
-        String choice = input.nextLine();
-
-
-        switch (choice) {
+            String choice = input.nextLine();
 
 
-            case "red":
-                System.out.println("Enter in your bet amount:");
-
-                betNum = input.nextDouble();
-
-                numOne = 1 + rnd.nextInt(36);
-
-                Collections.shuffle(colorPick);
-
-                if (colorPick.get(0) == "black") {
-
-                    System.out.println("The ball landed on" + " " + numOne + " " + colorPick.get(0) + "\n" + "Sorry, you've lost this bet.");
-                    lostBet = 0 - betNum;
-                    total += lostBet;
-                    lostGame++;
-                } else {
-                    System.out.println("The ball landed on" + " " + numOne + " " + colorPick.get(0) + "\n" + "Congratulations, you've won.");
-                    betNum = betNum * 2;
-                    total += betNum;
-                    wonGame++;
-                }
-                System.out.println("\nYou currently have $" + total);
-                ask();
-                break;
-
-            case "black":
-                System.out.println("Enter in your bet amount:");
-
-                betNum = input.nextDouble();
-
-                numOne = 1 + rnd.nextInt(36);
-
-                Collections.shuffle(colorPick);
-
-                if (colorPick.get(0) == "red") {
-                    System.out.println("The ball landed on" + " " + numOne + " " + colorPick.get(0) + "\n" + "Sorry, you've lost this bet.");
-                    lostBet = 0 - betNum;
-                    total += lostBet;
-                    lostGame++;
-                } else {
-                    System.out.println("The ball landed on" + " " + numOne + " " + colorPick.get(0) + "\n" + "Congratulations, you've won.");
-                    betNum = betNum * 2;
-                    total += betNum;
-                    wonGame++;
-                }
-                System.out.println("\nYou currently have $" + total);
-                ask();
-                break;
+            switch (choice) {
 
 
-            case "even":
-                System.out.println("Enter in your bet amount:");
+                case "red":
+                    System.out.println("Enter in your bet amount:");
 
-                betNum = input.nextDouble();
+                    betNum = input.nextDouble();
 
-                numOne = 1 + rnd.nextInt(36);
+                    numOne = 1 + rnd.nextInt(36);
 
-                Collections.shuffle(colorPick);
+                    Collections.shuffle(colorPick);
 
-                if (numOne % 2 == 0) {
-                    System.out.println("The ball landed on" + " " + numOne + " " + colorPick.get(0) + "\n" + "Congratulations, you've won.");
-                    betNum = betNum * 2;
-                    total += betNum;
-                    wonGame++;
+                    if (colorPick.get(0) == "black") {
 
-                } else {
-                    System.out.println("The ball landed on" + " " + numOne + " " + colorPick.get(0) + "\n" + "Sorry, you've lost this bet.");
-                    lostBet = 0 - betNum;
-                    total += lostBet;
-                    lostGame++;
-                }
-                System.out.println("\nYou currently have $" + total);
-                ask();
-                break;
+                        System.out.println("The ball landed on" + " " + numOne + " " + colorPick.get(0) + "\n" + "Sorry, you've lost this bet.");
+                        lostBet = 0 - betNum;
+                        total += lostBet;
+                        lostGame++;
+                    } else {
+                        System.out.println("The ball landed on" + " " + numOne + " " + colorPick.get(0) + "\n" + "Congratulations, you've won.");
+                        betNum = betNum * 2;
+                        total += betNum;
+                        wonGame++;
+                    }
+                    System.out.println("\nYou currently have $" + total);
+                    break;
 
-            case "odd":
-                System.out.println("Enter in your bet amount:");
+                case "black":
+                    System.out.println("Enter in your bet amount:");
 
-                betNum = input.nextDouble();
+                    betNum = input.nextDouble();
 
-                numOne = 1 + rnd.nextInt(36);
+                    numOne = 1 + rnd.nextInt(36);
 
-                Collections.shuffle(colorPick);
+                    Collections.shuffle(colorPick);
 
-                if (numOne % 2 != 0) {
-                    System.out.println("The ball landed on" + " " + numOne + " " + colorPick.get(0) + "\n" + "Congratulations, you've won.");
-                    betNum = betNum * 2;
-                    total += betNum;
-                    wonGame++;
-                } else {
-                    System.out.println("The ball landed on" + " " + numOne + " " + colorPick.get(0) + "\n" + "Sorry, you've lost this bet.");
-                    lostBet = 0 - betNum;
-                    total += lostBet;
-                    lostGame++;
-                }
-                System.out.println("\nYou currently have $" + total);
-                ask();
-                break;
-
-            case "low":
-                System.out.println("Enter in your bet amount:");
-
-                betNum = input.nextDouble();
-
-                numOne = 1 + rnd.nextInt(36);
-
-                Collections.shuffle(colorPick);
-
-                if ((numOne > 1) & (numOne < 18)) {
-                    System.out.println("The ball landed on" + " " + numOne + " " + colorPick.get(0) + "\n" + "Congratulations, you've won.");
-                    betNum = betNum * 2;
-                    total += betNum;
-                    wonGame++;
-                } else {
-                    System.out.println("The ball landed on" + " " + numOne + " " + colorPick.get(0) + "\n" + "Sorry, you've lost this bet.");
-                    lostBet = 0 - betNum;
-                    total += lostBet;
-                    lostGame++;
-
-                }
-                System.out.println("\nYou currently have $" + total);
-                ask();
-                break;
-
-            case "high":
-                System.out.println("Enter in your bet amount:");
-
-                betNum = input.nextDouble();
-
-                numOne = 1 + rnd.nextInt(36);
-
-                Collections.shuffle(colorPick);
-
-                if ((numOne > 19) & (numOne < 36)) {
-                    System.out.println("The ball landed on" + " " + numOne + " " + colorPick.get(0) + "\n" + "Congratulations, you've won.");
-                    betNum = betNum * 2;
-                    total += betNum;
-                    wonGame++;
+                    if (colorPick.get(0) == "red") {
+                        System.out.println("The ball landed on" + " " + numOne + " " + colorPick.get(0) + "\n" + "Sorry, you've lost this bet.");
+                        lostBet = 0 - betNum;
+                        total += lostBet;
+                        lostGame++;
+                    } else {
+                        System.out.println("The ball landed on" + " " + numOne + " " + colorPick.get(0) + "\n" + "Congratulations, you've won.");
+                        betNum = betNum * 2;
+                        total += betNum;
+                        wonGame++;
+                    }
+                    System.out.println("\nYou currently have $" + total);
+                    break;
 
 
-                } else {
-                    System.out.println("The ball landed on" + " " + numOne + " " + colorPick.get(0) + "\n" + "Sorry, you've lost this bet.");
-                    lostBet = 0 - betNum;
-                    total += lostBet;
-                    lostGame++;
+                case "even":
+                    System.out.println("Enter in your bet amount:");
 
-                }
-                System.out.println("\nYou currently have $" + total);
-                ask();
-                break;
+                    betNum = input.nextDouble();
 
-            default:
-                System.out.println("Invalid choice");
-                break;
+                    numOne = 1 + rnd.nextInt(36);
 
+                    Collections.shuffle(colorPick);
+
+                    if (numOne % 2 == 0) {
+                        System.out.println("The ball landed on" + " " + numOne + " " + colorPick.get(0) + "\n" + "Congratulations, you've won.");
+                        betNum = betNum * 2;
+                        total += betNum;
+                        wonGame++;
+
+                    } else {
+                        System.out.println("The ball landed on" + " " + numOne + " " + colorPick.get(0) + "\n" + "Sorry, you've lost this bet.");
+                        lostBet = 0 - betNum;
+                        total += lostBet;
+                        lostGame++;
+                    }
+                    System.out.println("\nYou currently have $" + total);
+                    break;
+
+                case "odd":
+                    System.out.println("Enter in your bet amount:");
+
+                    betNum = input.nextDouble();
+
+                    numOne = 1 + rnd.nextInt(36);
+
+                    Collections.shuffle(colorPick);
+
+                    if (numOne % 2 != 0) {
+                        System.out.println("The ball landed on" + " " + numOne + " " + colorPick.get(0) + "\n" + "Congratulations, you've won.");
+                        betNum = betNum * 2;
+                        total += betNum;
+                        wonGame++;
+                    } else {
+                        System.out.println("The ball landed on" + " " + numOne + " " + colorPick.get(0) + "\n" + "Sorry, you've lost this bet.");
+                        lostBet = 0 - betNum;
+                        total += lostBet;
+                        lostGame++;
+                    }
+                    System.out.println("\nYou currently have $" + total);
+                    break;
+
+                case "low":
+                    System.out.println("Enter in your bet amount:");
+
+                    betNum = input.nextDouble();
+
+                    numOne = 1 + rnd.nextInt(36);
+
+                    Collections.shuffle(colorPick);
+
+                    if ((numOne > 1) & (numOne < 18)) {
+                        System.out.println("The ball landed on" + " " + numOne + " " + colorPick.get(0) + "\n" + "Congratulations, you've won.");
+                        betNum = betNum * 2;
+                        total += betNum;
+                        wonGame++;
+                    } else {
+                        System.out.println("The ball landed on" + " " + numOne + " " + colorPick.get(0) + "\n" + "Sorry, you've lost this bet.");
+                        lostBet = 0 - betNum;
+                        total += lostBet;
+                        lostGame++;
+
+                    }
+                    System.out.println("\nYou currently have $" + total);
+                    break;
+
+                case "high":
+                    System.out.println("Enter in your bet amount:");
+
+                    betNum = input.nextDouble();
+
+                    numOne = 1 + rnd.nextInt(36);
+
+                    Collections.shuffle(colorPick);
+
+                    if ((numOne > 19) & (numOne < 36)) {
+                        System.out.println("The ball landed on" + " " + numOne + " " + colorPick.get(0) + "\n" + "Congratulations, you've won.");
+                        betNum = betNum * 2;
+                        total += betNum;
+                        wonGame++;
+
+
+                    } else {
+                        System.out.println("The ball landed on" + " " + numOne + " " + colorPick.get(0) + "\n" + "Sorry, you've lost this bet.");
+                        lostBet = 0 - betNum;
+                        total += lostBet;
+                        lostGame++;
+
+                    }
+                    System.out.println("\nYou currently have $" + total);
+                    break;
+
+                default:
+                    System.out.println("Invalid choice");
+                    break;
+
+            }
+            ask();
         }
-
     }
 
+    public static void ask() {
+
+        Scanner input = new Scanner(System.in);
+        System.out.println("Do you want to continue ? true or false");
+        String trueFalse="";
+
+        while (!trueFalse.equalsIgnoreCase("false")) {
+
+            trueFalse = input.nextLine();
 
 
-
-                        public static void ask() {
-
-                            String trueFalse = "";
-                            Scanner input = new Scanner(System.in);
-                            System.out.println("Do you want to continue? true or false");
-                            trueFalse = input.nextLine();
-
-                         /*   if (trueFalse == "true") {
-                                rouletteGame();
-                            } else if (trueFalse == "false") {
-                                System.out.println("\nYou currently have $" + total);
-                                System.out.println("You've won\t" + wonGame + "game(s) and lost" + lostGame + "game(s)");
-
-                            }
-                        }
-
-
-                        public static void showAll(){
-
-                            System.out.println();*/
-            }
         }
-
+    }
+}
 
 
 
