@@ -39,7 +39,7 @@ public class Main {
         System.out.println("Welcome! Let's play some roulette");
 
 
-        
+        do {
 
             System.out.println("Enter the type of bet you would like to place (red|black|even|odd|high|low):");
 
