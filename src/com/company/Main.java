@@ -23,8 +23,8 @@ public class Main {
         double betNum = 0;
         int numOne = 0;
         double lostBet = 0;
-        String trueFalse = "";
-
+        String trueFalse;
+        String choice;
 
         ArrayList<String> colorPick = new ArrayList<>();
 
@@ -39,19 +39,16 @@ public class Main {
         System.out.println("Welcome! Let's play some roulette");
 
 
-        while (true) {
+        do {
 
-        System.out.println("Enter the type of bet you would like to place (red|black|even|odd|high|low):");
+            System.out.println("Enter the type of bet you would like to place (red|black|even|odd|high|low):");
 
-            String choice = input.nextLine();
-
-
-
+            choice = input.next();
 
             switch (choice) {
 
-
                 case "red":
+
                     System.out.println("Enter in your bet amount:");
 
                     betNum = input.nextDouble();
@@ -74,6 +71,7 @@ public class Main {
                     }
                     System.out.println("\nYou currently have $" + total);
                     break;
+
 
                 case "black":
                     System.out.println("Enter in your bet amount:");
@@ -199,30 +197,15 @@ public class Main {
                 default:
                     System.out.println("Invalid choice");
                     break;
-
             }
-            System.out.println("Do you want to continue ? true or false");
-        }
+                System.out.println("Do you want to continue ? true or false");
+                trueFalse=input.next();
+            }
+
+
+        while (!trueFalse.equalsIgnoreCase("false"));
+
+        System.out.println("\nYou currently have $" + total);
+        System.out.println("You've won"+" "+wonGame+" "+"game(s) and lost"+" "+lostGame+" "+"game(s)");
     }
-
-        //System.out.println("\nYou currently have $" + total);
-        //System.out.println("You've won\t" + wonGame + "game(s) and lost" + lostGame + "game(s)");
-
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
